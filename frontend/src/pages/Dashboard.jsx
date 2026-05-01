@@ -16,27 +16,29 @@ const Dashboard = () => {
         fetchStats();
     }, []);
 
-    if (!stats) return <div style={{ padding: '2rem' }}>Loading dashboard...</div>;
+    if (!stats) return <div className="container">Loading dashboard...</div>;
 
     return (
-        <div style={{ padding: '2rem' }}>
+        <div className="container">
             <h2>Dashboard</h2>
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                <div style={{ padding: '1rem', border: '1px solid #ccc' }}>
-                    <h3>Total Tasks</h3>
-                    <p style={{ fontSize: '2rem' }}>{stats.totalTasks}</p>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Overview of your team's task performance.</p>
+            
+            <div className="stats-grid">
+                <div className="card stat-card">
+                    <div className="stat-title">Total Tasks</div>
+                    <div className="stat-value" style={{ color: 'var(--primary)' }}>{stats.totalTasks}</div>
                 </div>
-                <div style={{ padding: '1rem', border: '1px solid #ccc' }}>
-                    <h3>Completed</h3>
-                    <p style={{ fontSize: '2rem', color: 'green' }}>{stats.completedTasks}</p>
+                <div className="card stat-card">
+                    <div className="stat-title">Completed</div>
+                    <div className="stat-value text-success">{stats.completedTasks}</div>
                 </div>
-                <div style={{ padding: '1rem', border: '1px solid #ccc' }}>
-                    <h3>Pending</h3>
-                    <p style={{ fontSize: '2rem', color: 'orange' }}>{stats.pendingTasks}</p>
+                <div className="card stat-card">
+                    <div className="stat-title">Pending</div>
+                    <div className="stat-value text-warning">{stats.pendingTasks}</div>
                 </div>
-                <div style={{ padding: '1rem', border: '1px solid #ccc' }}>
-                    <h3>Overdue</h3>
-                    <p style={{ fontSize: '2rem', color: 'red' }}>{stats.overdueTasks}</p>
+                <div className="card stat-card">
+                    <div className="stat-title">Overdue</div>
+                    <div className="stat-value text-danger">{stats.overdueTasks}</div>
                 </div>
             </div>
         </div>

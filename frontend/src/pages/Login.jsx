@@ -22,44 +22,29 @@ const Login = () => {
     };
 
     return (
-        <div style={styles.container}>
-            <div style={styles.card}>
-                <h2 style={styles.title}>Welcome Back</h2>
-                <p style={styles.subtitle}>Login to your account</p>
-                {error && <div style={styles.error}>{error}</div>}
+        <div className="auth-container">
+            <div className="card auth-card">
+                <h2>Welcome Back</h2>
+                <p>Login to your account</p>
+                {error && <div className="alert alert-danger">{error}</div>}
                 
-                <form onSubmit={handleSubmit} style={styles.form}>
-                    <div style={styles.inputGroup}>
-                        <label style={styles.label}>Username</label>
-                        <input type="text" style={styles.input} value={username} onChange={e => setUsername(e.target.value)} required placeholder="Enter username" />
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label className="form-label">Username</label>
+                        <input type="text" className="form-control" value={username} onChange={e => setUsername(e.target.value)} required placeholder="Enter username" />
                     </div>
-                    <div style={styles.inputGroup}>
-                        <label style={styles.label}>Password</label>
-                        <input type="password" style={styles.input} value={password} onChange={e => setPassword(e.target.value)} required placeholder="Enter password" />
+                    <div className="form-group">
+                        <label className="form-label">Password</label>
+                        <input type="password" className="form-control" value={password} onChange={e => setPassword(e.target.value)} required placeholder="Enter password" />
                     </div>
-                    <button type="submit" style={styles.button}>Login</button>
+                    <button type="submit" className="btn btn-primary btn-block">Login</button>
                 </form>
-                <p style={styles.footerText}>
-                    Don't have an account? <Link to="/signup" style={styles.link}>Sign up here</Link>
-                </p>
+                <div style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+                    Don't have an account? <Link to="/signup" style={{ color: 'var(--primary)', fontWeight: '500', textDecoration: 'none' }}>Sign up here</Link>
+                </div>
             </div>
         </div>
     );
-};
-
-const styles = {
-    container: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', backgroundColor: '#f4f7f6' },
-    card: { background: '#fff', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)', width: '100%', maxWidth: '400px', textAlign: 'center' },
-    title: { margin: '0 0 0.5rem 0', color: '#333' },
-    subtitle: { margin: '0 0 1.5rem 0', color: '#666', fontSize: '0.9rem' },
-    form: { display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left' },
-    inputGroup: { display: 'flex', flexDirection: 'column', gap: '0.3rem' },
-    label: { fontSize: '0.85rem', fontWeight: 'bold', color: '#444' },
-    input: { padding: '0.75rem', borderRadius: '6px', border: '1px solid #ccc', fontSize: '1rem', outline: 'none' },
-    button: { padding: '0.75rem', borderRadius: '6px', border: 'none', background: '#007bff', color: '#fff', fontSize: '1rem', fontWeight: 'bold', cursor: 'pointer', marginTop: '0.5rem' },
-    error: { background: '#ffdddd', color: '#d8000c', padding: '0.75rem', borderRadius: '6px', marginBottom: '1rem', fontSize: '0.9rem' },
-    footerText: { marginTop: '1.5rem', fontSize: '0.9rem', color: '#666' },
-    link: { color: '#007bff', textDecoration: 'none', fontWeight: 'bold' }
 };
 
 export default Login;

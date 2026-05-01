@@ -32,6 +32,7 @@ const Projects = () => {
     };
 
     const handleDelete = async (id) => {
+        if (!window.confirm("Are you sure you want to delete this project?")) return;
         try {
             await api.delete(`/projects/${id}`);
             fetchProjects();
@@ -53,23 +54,39 @@ const Projects = () => {
     };
 
     return (
-        <div style={{ padding: '2rem' }}>
-            <h2>Projects (Admin Only)</h2>
-            <form onSubmit={handleCreate} style={{ marginBottom: '2rem' }}>
-                <input type="text" placeholder="Project Name" value={name} onChange={e => setName(e.target.value)} required />
-                <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} />
-                <button type="submit">Create Project</button>
+        <div className="container">
+            <h2>Projects Management</h2>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Create projects and assign members. (Admin Only)</p>
+            
+            <form onSubmit={handleCreate} className="form-inline">
+                <div className="form-group">
+                    <label className="form-label">Project Name</label>
+                    <input type="text" className="form-control" value={name} onChange={e => setName(e.target.value)} required placeholder="e.g., Q3 Marketing" />
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Description</label>
+                    <input type="text" className="form-control" value={description} onChange={e => setDescription(e.target.value)} placeholder="Short description..." />
+                </div>
+                <button type="submit" className="btn btn-primary">Create Project</button>
             </form>
-            <ul>
+            
+            <div className="grid-layout">
                 {projects.map(p => (
-                    <li key={p.id} style={{ marginBottom: '1rem', padding: '1rem', border: '1px solid #eee' }}>
-                        <strong>{p.name}</strong> - {p.description} <br/>
-                        <em>Members: {p.memberUsernames?.join(', ') || 'None'}</em> <br/>
-                        <button onClick={() => handleAddMember(p.id)}>Add Member</button>
-                        <button onClick={() => handleDelete(p.id)} style={{ color: 'red', marginLeft: '1rem' }}>Delete</button>
-                    </li>
+                    <div key={p.id} className="card">
+                        <h3 style={{ marginBottom: '0.5rem' }}>{p.name}</h3>
+                        <p style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.875rem' }}>{p.description || 'No description provided.'}</p>
+                        
+                        <div style={{ marginBottom: '1.5rem', fontSize: '0.875rem' }}>
+                            <strong>Members:</strong> <span style={{ color: 'var(--primary)' }}>{p.memberUsernames?.join(', ') || 'None'}</span>
+                        </div>
+                        
+                        <div style={{ display: 'flex', gap: '0.5rem' }}>
+                            <button onClick={() => handleAddMember(p.id)} className="btn btn-outline btn-sm">Add Member</button>
+                            <button onClick={() => handleDelete(p.id)} className="btn btn-danger btn-sm">Delete</button>
+                        </div>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

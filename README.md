@@ -4,7 +4,7 @@ A **full-stack Team Task Manager** web application with **JWT-based authenticati
 
 ---
 
-## 🚀 Live Demo
+##  Live Demo
 
 | Service  | URL |
 |----------|-----|
@@ -47,7 +47,7 @@ A **full-stack Team Task Manager** web application with **JWT-based authenticati
 - Stateless JWT-based session (no cookies)
 - Protected routes with token validation
 
-### 👥 Role-Based Access Control (RBAC)
+###  Role-Based Access Control (RBAC)
 
 | Feature | ADMIN | MEMBER |
 |---------|-------|--------|

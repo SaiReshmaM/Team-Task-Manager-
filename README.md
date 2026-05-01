@@ -211,7 +211,7 @@ npm run dev
 
 ##  Deployment on Railway
 
-Both the backend and frontend are deployed on **[Railway](https://railway.app)**.
+Both the backend and frontend are deployed on **[Railway]**.
 
 ### Backend Deployment
 1. Push your code to GitHub.

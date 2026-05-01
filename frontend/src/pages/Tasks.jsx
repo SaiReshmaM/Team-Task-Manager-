@@ -52,10 +52,12 @@ const Tasks = () => {
 
     const handleStatusUpdate = async (id, newStatus) => {
         try {
-            await api.put(`/tasks/${id}`, { status: newStatus });
+            const taskToUpdate = tasks.find(t => t.id === id);
+            await api.put(`/tasks/${id}`, { ...taskToUpdate, status: newStatus });
             fetchTasks();
         } catch (err) {
             console.error(err);
+            alert(err.response?.data?.error || "Error updating task status");
         }
     };
 

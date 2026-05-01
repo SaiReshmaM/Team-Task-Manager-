@@ -105,7 +105,7 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**", "/swagger-ui/**", "/v3/api-docs/**", "/error").permitAll()
+                .requestMatchers("/", "/index.html", "/assets/**", "/static/**", "/auth/**", "/swagger-ui/**", "/v3/api-docs/**", "/error").permitAll()
 
                 .requestMatchers("/projects/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
@@ -129,10 +129,7 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of(
-                "http://localhost:5173",
-                "https://your-frontend-domain.com"
-        ));
+        config.setAllowedOriginPatterns(List.of("*"));
 
         config.setAllowedHeaders(List.of("*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));

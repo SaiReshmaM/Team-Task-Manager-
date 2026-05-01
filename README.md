@@ -1,4 +1,4 @@
-# 🗂️ Team Task Manager
+#  Team Task Manager
 
 A **full-stack Team Task Manager** web application with **JWT-based authentication** and **Role-Based Access Control (RBAC)**. Built with a Spring Boot REST API backend and a React + Vite frontend, deployed on Railway.
 
@@ -8,13 +8,12 @@ A **full-stack Team Task Manager** web application with **JWT-based authenticati
 
 | Service  | URL |
 |----------|-----|
-| 🌐 Frontend | [aware-serenity-production.up.railway.app](https://aware-serenity-production-1f56.up.railway.app) |
-| 🔧 Backend API | [team-task-manager-production-a389.up.railway.app](https://team-task-manager-production-a389.up.railway.app) |
-| 📖 Swagger Docs | [/swagger-ui/index.html](https://team-task-manager-production-a389.up.railway.app/swagger-ui/index.html) |
+| APP Live Link | [aware-serenity-production.up.railway.app](https://aware-serenity-production-1f56.up.railway.app) |
+
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 | Technology | Purpose |
@@ -40,9 +39,9 @@ A **full-stack Team Task Manager** web application with **JWT-based authenticati
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔐 Authentication
+###  Authentication
 - User **Signup** with role selection (`ADMIN` / `MEMBER`)
 - User **Login** with JWT token generation
 - Stateless JWT-based session (no cookies)
@@ -52,25 +51,25 @@ A **full-stack Team Task Manager** web application with **JWT-based authenticati
 
 | Feature | ADMIN | MEMBER |
 |---------|-------|--------|
-| Create / Edit / Delete Projects | ✅ | ❌ |
-| Add / Remove Project Members | ✅ | ❌ |
-| Create / Assign Tasks | ✅ | ❌ |
-| View Projects | ✅ | ✅ |
-| View Assigned Tasks | ✅ | ✅ |
-| Update Task Status | ✅ | ✅ (own tasks only) |
-| View Dashboard Stats | ✅ | ✅ |
+| Create / Edit / Delete Projects | yes | no |
+| Add / Remove Project Members | yes | no |
+| Create / Assign Tasks | yes | no |
+| View Projects | yes | yes |
+| View Assigned Tasks | yes | yes |
+| Update Task Status | yes | yes (own tasks only) |
+| View Dashboard Stats | yes | yes |
 
-### 📊 Dashboard
+###  Dashboard
 - Total tasks count
 - Pending tasks count
 - Completed tasks count
 - Overdue tasks count
 
-### 📁 Project Management
+###  Project Management
 - Create, update, and delete projects
 - Add or remove team members from projects
 
-### ✅ Task Management
+###  Task Management
 - Create tasks with deadlines and assignments
 - Filter tasks by status: `TODO`, `IN_PROGRESS`, `DONE`
 - Visual status badges
@@ -78,7 +77,7 @@ A **full-stack Team Task Manager** web application with **JWT-based authenticati
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ```
 User
@@ -105,7 +104,7 @@ Task
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Auth
 | Method | Endpoint | Description | Auth |
@@ -138,7 +137,7 @@ Task
 
 ---
 
-## ⚙️ Local Setup
+##  Local Setup
 
 ### Prerequisites
 - Java 17+
@@ -148,7 +147,7 @@ Task
 
 ---
 
-### 1. 🗃️ Database Setup
+### 1.  Database Setup
 
 ```sql
 CREATE DATABASE team_task_manager;
@@ -156,7 +155,7 @@ CREATE DATABASE team_task_manager;
 
 ---
 
-### 2. 🔧 Backend Setup
+### 2.  Backend Setup
 
 ```bash
 cd backend
@@ -182,12 +181,10 @@ Run the backend:
 mvn spring-boot:run
 ```
 
-> API will be available at **http://localhost:8080**  
-> Swagger UI: **http://localhost:8080/swagger-ui/index.html**
 
 ---
 
-### 3. 🎨 Frontend Setup
+### 3.  Frontend Setup
 
 ```bash
 cd frontend
@@ -212,7 +209,7 @@ npm run dev
 
 ---
 
-## ☁️ Deployment on Railway
+##  Deployment on Railway
 
 Both the backend and frontend are deployed on **[Railway](https://railway.app)**.
 
@@ -238,13 +235,13 @@ Both the backend and frontend are deployed on **[Railway](https://railway.app)**
 
 ```js
 const api = axios.create({
-    baseURL: 'https://your-backend.up.railway.app'
+    baseURL: 'BACKEND LINK'
 });
 ```
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 Team-Task-Manager/
@@ -273,7 +270,7 @@ Team-Task-Manager/
 
 ---
 
-## 🔑 Default Test Accounts
+##  Default Test Accounts
 
 You can sign up using the `/auth/signup` endpoint. Example:
 
@@ -291,24 +288,4 @@ You can sign up using the `/auth/signup` endpoint. Example:
   "password": "Password123",
   "role": "MEMBER"
 }
-```
 
----
-
-## 📸 Screenshots
-
-> *(Add screenshots of Login, Dashboard, Projects, and Tasks pages here)*
-
----
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-## 👩‍💻 Author
-
-**Sai Reshma M**  
-Full Stack Java Developer  
-[GitHub](https://github.com/SaiReshmaM)
